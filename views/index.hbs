@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Main CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#">
+                <img src="images/logoPLUGIN.png" width="40" height="30" class="d-inline-block align-top" alt="">
+                PLUGIN
+            </a>
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0 navbar-auth">
+                <li class="nav-item">
+                    <a class="nav-link btn-login" href="/verification">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron text-center jumbotron-login" style="background: #000; color: #fff">
+        <h1 class="display-4">PLUGIN</h1>
+        <p class="lead">PLUGIN adalah suatu organisasi atau komunitas studi linux dan pengembangan aplikasi di Politeknik Harapan Bersama Tegal. Kami mempunyai tujuan untuk mengenalkan dan mengOpen Source kan mahasiswa dan masyarakat umum dengan berbagai kegiatan yang nantinya bisa membuka wawasan serta mindset OpenSource guna untuk mengurangi angka pembajakan Software di Indonesia.</p>
+        <hr class="my-4">
+        <p>Ingin tahu lebih lanjut?</p>
+        <p class="lead">
+            <a class="btn btn-success btn-lg" href="https://plug-in.web.id" target="_blank" role="button">Learn more</a>
+        </p>
+    </div>
+    <div class="jumbotron text-center jumbotron-awal" style="background: #000; color: #fff">
+        <h1 class="display-4">PLUGIN</h1>
+        <p class="lead">Silahkan login terlebih dahulu</p>
+        <hr class="my-4">
+    </div>
+</body>
+<script>
+    let pesanLogin = localStorage.getItem('login');
+    document.querySelector('.jumbotron-login').style.display = 'none'
+    document.querySelector('.jumbotron-awal').style.display = 'block'
+    if(pesanLogin == 'login'){
+        document.querySelector('.jumbotron-login').style.display = 'block'
+        document.querySelector('.jumbotron-awal').style.display = 'none'
+        document.querySelector('.navbar-auth').innerHTML = `
+        <li class="nav-item">
+            <a class="nav-link btn-login" href="/" onclick="return clearLogin()">Logout</a>
+        </li>
+        `
+    }
+
+    const clearLogin = () => {
+        localStorage.removeItem('login');
+        window.location.reload();
+    }
+
+    let pesanRegis = localStorage.getItem('register')
+    if(pesanRegis == 'berhasil'){
+        alert("Berhasil Register")
+        localStorage.removeItem('register')
+    }
+</script>
+
+</html>

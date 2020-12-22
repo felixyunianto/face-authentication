@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Verifikasi</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
+        <script defer src="js/face-api.min.js"></script>
+        <script defer src="js/verification.js"></script>
+        <style>
+            button,
+            video {
+                display: block;
+                margin: 0 auto;
+                clip-path: inset(10% 10% 10% 10% round 20%, 20%);
+                
+                /* OLD VALUE example: circle(245px, 140px, 50px); */
+                /* Yep, even the new clip-path has deprecated stuff. */
+            }
+            #video{
+                transform: rotateY(180deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="text-center">
+                <h3 class="mt-4">Silahkan paskan wajah anda!</h3>
+                <video id="video" width="450" height="450" autoplay muted></video>
+                <button class="btn btn-primary" id="verify">Verify</button>
+            </div>
+            <div id="output"></div>
+        </div>
+    </body>
+</html>
